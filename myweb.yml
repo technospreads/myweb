@@ -5,12 +5,12 @@
 
   vars:
     tomcat_folder: bin
-    tomcat_path: "/root/tomcat10/{{ tomcat_folder }}"
-    grep_string: "[/]root/tomcat10/{{ tomcat_folder }}"
+    tomcat_path: "/root/tomcat11/{{ tomcat_folder }}"
+    grep_string: "[/]root/tomcat11/{{ tomcat_folder }}"
 
   tasks:
     - name: Copying the war file to the destination
-      copy: src=/tmp/myweb/myweb-0.12.18.war dest="{{ tomcat_path }}/../webapps/"
+      copy: src=/root/myweb/myweb-0.12.18.war dest="{{ tomcat_path }}/../webapps/"
 
     - name: ==> shutdown qle tomcat ,path = "{{ tomcat_path }}/bin/"
       command: sh {{ tomcat_path }}/shutdown.sh
